@@ -1,0 +1,1 @@
+const RightPage: React.FC=()=>{}
