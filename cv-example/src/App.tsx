@@ -62,7 +62,14 @@ const App: React.FC = () => {
                 Later, I completed this Bootcamp with a certificate and continued working there.
             </p>
 
-         </Card>
+         </Card> 
+           
+          <h2 style={{color:"black",margin:0}}><strong>Certificate & Courses</strong></h2><br/>
+          <p style={{color:"gray",margin:0}}>DSA Academy-juny 2023 , Baku</p>
+          <p style={{color:"gray",margin:0}}>Code Academy Course (SQL Oracle) Advanced - september 2025  </p><br/>
+
+          <h2 style={{color:"black"}}><strong>References</strong></h2>
+          <p style={{color:"gray"}}>Available on request</p>
 
 
         </Card>
