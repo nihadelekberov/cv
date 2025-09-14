@@ -18,7 +18,7 @@ const App: React.FC = () => {
           
           borderRadius: 6}}}>
       
-      <div style={{ minHeight: '100vh', backgroundColor: '#f5f5f5' }}>
+      <div style={{ minHeight: '100vh', backgroundColor: 'white' }}>
       
         <Row gutter ={[24,24]}>
         
