@@ -1,13 +1,26 @@
 
 import React from 'react';
+import { useState } from 'react';
+import { UploadOutlined } from '@ant-design/icons';
+
 
 import { ConfigProvider } from 'antd';
 import 'antd/dist/reset.css';
-import {Row, Col, Card} from "antd";
+import {Row, Col, Card,Button,Upload} from "antd";
 import { EnvironmentOutlined, MailOutlined, GithubOutlined, LinkedinOutlined } from "@ant-design/icons";
 import {Progress} from "antd";
 
 const App: React.FC = () => {
+
+  const [imageUrl, setImageUrl] = useState<string | null>(null);
+
+
+  const handleUpload = (file: File) => {
+    const reader = new FileReader();
+    reader.onload = (e) => setImageUrl(e.target?.result as string);
+    reader.readAsDataURL(file);
+    return false; 
+  };
   return (
    
     <ConfigProvider
@@ -25,13 +38,42 @@ const App: React.FC = () => {
         
 
         <Col xs={24} lg={10}>
-        <Card style={{backgroundColor:"#afcdea", borderRadius:"10px" }}>
-          <p>
-            <img alt="Profile"
-        style={{ width: "100%", borderRadius: "8px"}} src="WhatsApp Image 2025-09-14 at 22.16.16.jpeg"></img>
-          </p>
-         
-        </Card>
+        <Card
+      style={{
+        width:"200px",
+        height: 200,
+        backgroundColor: "#e6f7ff",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        position: "relative",
+        overflow: "hidden",
+      }}
+    >
+      {imageUrl ? (
+        <img
+          src={imageUrl}
+          alt="Profile"
+          style={{ width: "100%", height: "100%", objectFit: "cover" }}
+        />
+      ) : (
+        <span style={{ color: "#999" }}>our photo</span>
+      )}
+
+      <Upload beforeUpload={handleUpload} showUploadList={false} accept="image/*">
+        <Button
+          icon={<UploadOutlined />}
+          size="small"
+          style={{
+            position: "absolute",
+            bottom: 10,
+            right: 10,
+          }}
+        >
+          Upload
+        </Button>
+      </Upload>
+    </Card>
 
         <Card>
          <h2 style={{color:"black", margin:0}}><strong>Nihad Ələkbərli</strong></h2>
